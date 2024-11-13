@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy1
   m_EditorClassIdentifier: 
   hp: 5
-  goldDrop: 5
+  goldDrop: 2
   sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}

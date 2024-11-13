@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Boss1
   m_EditorClassIdentifier: 
   hp: 30
-  goldDrop: 45
+  goldDrop: 25
   sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
