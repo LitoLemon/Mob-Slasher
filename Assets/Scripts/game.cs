@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
     public GameObject[] hpSliders = new GameObject[2];
     public GameObject button;
 
-
+    public float deathTime;
     public int hp = 8;
 
 
@@ -55,6 +55,7 @@ public class Game : MonoBehaviour
     {
         Debug.Log("Enemy is dead.");
         //disable sprite
+        button.SetActive(false);
         //add particle effects for enemy exploding into gold
         //add gold to player bank
         AdjustGold(enemy.goldDrop);
@@ -78,6 +79,7 @@ public class Game : MonoBehaviour
         }
         button.GetComponent<UnityEngine.UI.Image>().sprite = enemy.sprite;
 
+        StartCoroutine(DeathCd(deathTime));
     }
 
     private void NextRound()
@@ -120,5 +122,16 @@ public class Game : MonoBehaviour
     {
         gold += amount;
         goldTxt.GetComponent<TMP_Text>().text = gold.ToString() + "G";
+    }
+
+    private IEnumerator DeathCd(float time)
+    {
+        for(float remainingTime = time; remainingTime < 0; remainingTime -= Time.deltaTime)
+        {
+            continue;            
+        }
+        button.SetActive(true);
+        return null;
+
     }
 }

@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1324,7 +1324,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -2.4781, y: 0}
+  m_AnchoredPosition: {x: -2.4781036, y: 0}
   m_SizeDelta: {x: -4.9563, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1116501088
@@ -1855,12 +1855,14 @@ MonoBehaviour:
   - {fileID: 783993417}
   - {fileID: 1344159287}
   button: {fileID: 1116501088}
+  deathTime: 3
   hp: 8
   enemies:
   - {fileID: 11400000, guid: 8f3800911a8ccc14399b28ff751395a8, type: 2}
   - {fileID: 11400000, guid: 3eaa28a0aac0a5845bec9b2f50251e53, type: 2}
   bosses:
   - {fileID: 11400000, guid: 8023d67e29ddac149829d9f5302b99a4, type: 2}
+  - {fileID: 11400000, guid: f4bef11e8c39e7a40a4461245eec3905, type: 2}
   enemy: {fileID: 11400000, guid: 3eaa28a0aac0a5845bec9b2f50251e53, type: 2}
 --- !u!114 &1508661785
 MonoBehaviour:
