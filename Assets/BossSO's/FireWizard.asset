@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002b2a7eb20c5554e8d5b231e0863909, type: 3}
+  m_Name: FireWizard
+  m_EditorClassIdentifier: 
+  hp: 30
+  goldDrop: 25
+  sprite: {fileID: 2047759428, guid: a3e53fa1338c0cb4596fa2eb31c7b54c, type: 3}
+  animController: {fileID: 9100000, guid: 4d242df79c5f0874d829c66f991dc779, type: 2}

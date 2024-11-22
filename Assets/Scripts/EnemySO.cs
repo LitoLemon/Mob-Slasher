@@ -7,5 +7,6 @@ public class EnemySO : ScriptableObject
 {
     public int hp;
     public int goldDrop;
-    public Sprite sprite; 
+    public Sprite sprite;
+    public RuntimeAnimatorController animController;
 }

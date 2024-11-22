@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002b2a7eb20c5554e8d5b231e0863909, type: 3}
+  m_Name: Rat
+  m_EditorClassIdentifier: 
+  hp: 5
+  goldDrop: 2
+  sprite: {fileID: 1157943552, guid: b928b65b42c0fed44bdb2307bd88baa0, type: 3}
+  animController: {fileID: 9100000, guid: b71f698bd4ebf144194b7089132f68b5, type: 2}

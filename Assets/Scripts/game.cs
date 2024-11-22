@@ -14,8 +14,11 @@ public class Game : MonoBehaviour
     public GameObject[] waveTxt = new GameObject[2];
     public GameObject[] hpSliders = new GameObject[2];
     public GameObject button;
+    public GameObject enemyParent;
+    public Animator playerAnim;
 
     public float deathTime;
+    public float playerAnimDelay;
     public int hp = 8;
 
 
@@ -30,8 +33,18 @@ public class Game : MonoBehaviour
     private int clickDmg = 1;
     private int gold;
 
+    private bool dead = false;
+
+    private Animator enemyAnim;
+
+    private void Start()
+    {
+        enemyAnim = button.GetComponent<Animator>();
+    }
+
     public void DmgEnemy()
     {
+        if (dead) return;
         //adjust hp
         hp -= clickDmg;
         hpTxt.GetComponent<TMP_Text>().text = "HP: " + hp.ToString();
@@ -39,6 +52,11 @@ public class Game : MonoBehaviour
         {
             slider.GetComponent<UnityEngine.UI.Slider>().value = hp;
         }
+        enemyAnim.SetFloat("hp", hp);
+        playerAnim.SetBool("attack", true);
+        Debug.Log(playerAnim.GetBool("attack"));
+        StopCoroutine("PlayerAnimDelay");
+        StartCoroutine("PlayerAnimDelay");
         CheckHp();
     }
 
@@ -46,6 +64,7 @@ public class Game : MonoBehaviour
     {
         if (hp <= 0)
         {
+            dead = true;
             //enter death
             Death();
         }
@@ -54,12 +73,11 @@ public class Game : MonoBehaviour
     private void Death()
     {
         Debug.Log("Enemy is dead.");
-        //disable sprite
-        button.SetActive(false);
+        //wait for death anim to play
+        StartCoroutine(DeathCd(deathTime));
         //add particle effects for enemy exploding into gold
         //add gold to player bank
         AdjustGold(enemy.goldDrop);
-        NextRound();
     }
 
     private void NextEnemy(EnemySO[] enemyList)
@@ -77,9 +95,10 @@ public class Game : MonoBehaviour
             slide.maxValue = hp;
             slide.value = hp;
         }
+        enemyAnim.SetFloat("hp", hp);
+        enemyAnim.runtimeAnimatorController = enemy.animController;
         button.GetComponent<UnityEngine.UI.Image>().sprite = enemy.sprite;
-
-        StartCoroutine(DeathCd(deathTime));
+        dead = false;
     }
 
     private void NextRound()
@@ -126,12 +145,20 @@ public class Game : MonoBehaviour
 
     private IEnumerator DeathCd(float time)
     {
-        for(float remainingTime = time; remainingTime < 0; remainingTime -= Time.deltaTime)
+        for(float i = time; i > 0; i -= Time.deltaTime)
         {
-            continue;            
+            yield return null;            
         }
-        button.SetActive(true);
-        return null;
+        NextRound();
+    }
 
+    private IEnumerator PlayerAnimDelay()
+    {
+        for (float i = playerAnimDelay; i > 0; i -= Time.deltaTime)
+        {
+            yield return null;
+        }
+        playerAnim.SetBool("attack", false);
+        Debug.Log(playerAnim.GetBool("attack"));
     }
 }
